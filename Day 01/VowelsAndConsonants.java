@@ -22,5 +22,7 @@ public class VowelsAndConsonants{
         
         System.out.println(vowels);
         System.out.println(consonants);
+
+        scan.close();
     }
 }

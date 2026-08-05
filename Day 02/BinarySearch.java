@@ -41,5 +41,7 @@ public class BinarySearch{
         }
 
         System.out.println(index);
+
+        scan.close();
     }
 }

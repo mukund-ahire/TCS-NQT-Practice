@@ -10,6 +10,6 @@ public class StringReverse{
             char ch = str.charAt(i);
             System.out.print(ch);
         }
-
+        scan.close();
     }
 }

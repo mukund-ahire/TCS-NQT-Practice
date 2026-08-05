@@ -16,5 +16,7 @@ public class CharacterCount{
             }
         }
         System.out.println(count);
+
+        scan.close();
     }
 }
