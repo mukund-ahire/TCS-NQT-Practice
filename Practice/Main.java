@@ -1,53 +1,47 @@
-package Practice;
-
 import java.util.*;
 
 public class Main{
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        int n = scan.nextInt();
 
-        int arr[] = new int[n];
-        for (int i = 0; i < n; i++) {
-            arr[i] = scan.nextInt();
-        }
+        int rows = scan.nextInt();
+        int cols = scan.nextInt();
 
-        int target = scan.nextInt();
-
-        for (int i = 1; i < arr.length; i++) {
-            int key = arr[i];
-            int j = i-1;
-            while(j>=0 && arr[j]>key){
-                arr[j+1]=arr[j];
-                j--;
-            }
-            arr[j+1]=key;
-        }
-
-        int low = 0;
-        int high = n-1;
-        int index = -1;
-
-        while(low<=high){
-            int mid = low+(high-low)/2;
-            if (target == arr[mid]) {
-                index = mid;
-                break;
-            }
-            if (target < arr[mid]) {
-                high = mid - 1;
-            }
-            if (target > arr[mid]) {
-                low = mid + 1;
+        int arr[][] = new int[rows][cols];
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                arr[i][j] = scan.nextInt();
             }
         }
 
-        System.out.println(index);
+        int top = 0;
+        int bottom = rows -1;
+        int left = 0;
+        int right = cols - 1;
 
-        // for (int i = 0; i < n; i++) {
-        //     System.out.print(arr[i]+ " ");
-        // }
-
+        while(top <= bottom && left <= right){
+            for (int i = left; i <= right; i++) {
+                System.out.print(arr[top][i] + " ");
+            }
+            top ++;
+            for (int i = top ; i <= bottom; i++) {
+                System.out.print(arr[i][right]+ " ");
+            }
+            right --;
+            if(top <= bottom){
+                for (int i = right; i >= left; i--) {
+                    System.out.print(arr[bottom][i]+ " ");
+                }
+                bottom--;
+            }
+            if(left <= right){
+                for (int i = bottom; i >= top; i--) {
+                    System.out.print(arr[i][left]+ " ");
+                }
+                left ++;
+            }
+        }
         scan.close();
+
     }
 }
