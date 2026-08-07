@@ -28,5 +28,6 @@ public class Intersection {
                 set.remove(arr2[i]);
             }
         }
+        scan.close();
     }
 }
